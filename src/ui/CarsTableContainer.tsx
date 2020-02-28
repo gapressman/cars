@@ -2,6 +2,7 @@ import * as React from "react";
 import { CarsTable } from "./CarsTable";
 import { carsManager, Car } from "../service/CarsManager";
 import { filterCars } from "./helpers/filterCars";
+import { sortByModel } from "./helpers/sortByModel";
 
 export class CarsTableContainer extends React.Component<
   {},
@@ -63,7 +64,9 @@ export class CarsTableContainer extends React.Component<
 
     const filteredCars = filterCars(carsState, searchTerm);
 
-    const cars = isReverseSort ? filteredCars.reverse() : filteredCars;
+    const cars = isReverseSort
+      ? sortByModel(filteredCars).reverse()
+      : sortByModel(filteredCars);
 
     return (
       <CarsTable

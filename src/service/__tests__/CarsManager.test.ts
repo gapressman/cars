@@ -21,15 +21,10 @@ jest.spyOn(carsClient, "getCars").mockResolvedValue([
 
 jest.spyOn(carsClient, "saveCars");
 
-it("given getCars is called, should return cars with model capitalized and alphabetized by model", async () => {
+it("given getCars is called, should return cars with model capitalized ", async () => {
   const result = await carsManager.getCars();
 
   expect(result).toEqual([
-    {
-      id: 3,
-      manufacturer: "toyota",
-      model: "CAMRY HYBRID"
-    },
     {
       id: 1,
       manufacturer: "ford",
@@ -39,6 +34,11 @@ it("given getCars is called, should return cars with model capitalized and alpha
       id: 2,
       manufacturer: "nissan",
       model: "ULTIMA"
+    },
+    {
+      id: 3,
+      manufacturer: "toyota",
+      model: "CAMRY HYBRID"
     }
   ]);
 });

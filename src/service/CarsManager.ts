@@ -1,4 +1,3 @@
-import { sortByModel } from "../ui/helpers/sortByModel";
 import { carsClient } from "./CarsClient";
 
 //Pretending there are real api calls a little bit.  I considered having a timeout and faking loading, but decided against.
@@ -11,7 +10,7 @@ class CarsManager {
       };
     });
 
-    return Promise.resolve(sortByModel(cars));
+    return Promise.resolve(cars);
   }
 
   async saveCars(cars: Car[]) {
